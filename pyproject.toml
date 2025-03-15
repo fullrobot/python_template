@@ -5,51 +5,36 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "python_template"
 version = "0.1.0"
-description = ""
+description = "Reusable Python Template"
 authors = ["Adam Gleason <adam.g.gleason@gmail.com>"]
 maintainers = ["Adam Gleason <adam.g.gleason@gmail.com>"]
 license = "Proprietary"
 readme = "READEME.md"
-homepage = ""
-repository = ""
 keywords = ["python"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+ruff = "^0.11.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^4.0.1"
-black = "^22.6.0"
 pre-commit = "^2.20.0"
 mypy = "^0.971"
-isort = "^5.10.1"
 pylint = "^2.14.5"
 bumpver = "^2022.1118"
 pytest = "^7.1.2"
 
-[tool.black]
+[tool.ruff]
 line-length = 120
-include = '\.py?$'
-extend-exclude = '''
-/(
-    \.git
-    | .*__init__py$
-)/
-'''
-
-[tool.isort]
-line_length = 120
-profile = "black"
-multi_line_output = 3
-combine_as_imports = true
+select = ["E", "F", "W", "C90"]
+ignore = ["E501"]
+exclude = ["tests/*"]
 
 [tool.mypy]
-python_version = 3.10
+python_version = "3.10"
 check_untyped_defs = true
 ignore_errors = false
 ignore_missing_imports = true
 strict_optional = true
-warn_usued_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
 
